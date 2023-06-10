@@ -113,8 +113,8 @@ export default function Home() {
   const makePromptImportData = React.useCallback(() => {
     return `[${selectedPromptsConfig
       .map((selectedPrompt) => {
-        const { title, prompt,  } = selectedPrompt;
-        return JSON.stringify({ title, prompt,  });
+        const { title, verse_text,  } = selectedPrompt;
+        return JSON.stringify({ title, verse_text  });
       })
       .join(",")}]`;
   }, [selectedPromptsConfig]);
