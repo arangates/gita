@@ -12,7 +12,6 @@ export function Instructions() {
         <Cursor />
       </div>
 
-      <h3 className={styles.title}>Install AI Commands</h3>
       <p className={styles.description}>
         Select a sloka by clicking on it. Hold{" "}
         <kbd data-variant="small">⌘</kbd> to select multiple. Click{" "}

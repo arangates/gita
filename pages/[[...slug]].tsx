@@ -31,7 +31,8 @@ import {
   PlusCircleIcon,
   RaycastLogoNegIcon,
   StarsIcon,
-  TrashIcon
+  TrashIcon,
+  HeartIcon
 } from "@raycast/icons";
 
 const raycastProtocolForEnvironments = {
@@ -272,16 +273,16 @@ export default function Home({ onTouchReady }) {
               <div>
                 <DialogTitle className={styles.dialogTitle}>About</DialogTitle>
                 <DialogDescription className={styles.dialogDescription}>
-                  Prompt Explorer is a tool to easily browse, share, and add
-                  prompts to <a href="https://raycast.com">Raycast</a>.
+                  Gita Explorer is a tool to easily browse, share, and read
+                  gita.
                 </DialogDescription>
                 <p className={styles.dialogDescription}>
-                  Select the prompts by clicking on them. To select multiple,
+                  Select the sloka by clicking on them. To select multiple,
                   hold <kbd>⌘</kbd> or select them with your mouse.
                 </p>
                 <p className={styles.dialogDescription}>
-                  Then, click the “Add to Raycast” button to import these
-                  prompts as AI Commands. You can also download the prompts as a
+                  Then, click the “Add to Favorites” button to import these
+                  slokas as File. You can also download the slokas as a
                   JSON file, or copy the URL to share with others.
                 </p>
               </div>
@@ -290,7 +291,7 @@ export default function Home({ onTouchReady }) {
                   <h4 className={styles.dialogTitle}>Shortcuts</h4>
                   <ul className={styles.shortcuts}>
                     <li>
-                      Add to Raycast
+                      Add to Favorites
                       <span className={styles.hotkeys}>
                         <kbd>⌘</kbd>
                         <kbd>⏎</kbd>
@@ -350,15 +351,15 @@ export default function Home({ onTouchReady }) {
             <p className={styles.dialogDescription}>
               This project is Open Source and{" "}
               <a
-                href="https://github.com/raycast/prompt-explorer"
-                title="Prompt Explorer on GitHub"
+                href="https://github.com/arangates/gita"
+                title="Gita Explorer on GitHub"
               >
                 available on GitHub
               </a>
               . We welcome contributions!
               <br />
               If you have any questions or feedback, please{" "}
-              <a href="mailto:feedback+rayso@raycast.com?subject=prompts">
+              <a href="mailto:arangates@gmail.com?subject=gita">
                 send us an email
               </a>
               .
@@ -366,7 +367,7 @@ export default function Home({ onTouchReady }) {
 
             <p style={{ fontSize: 13, marginTop: 32 }}>
               <a
-                href="https://raycast.com"
+                href="https://aranga.in"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -376,9 +377,9 @@ export default function Home({ onTouchReady }) {
               >
                 Made by{" "}
                 <span style={{ color: "#FF6363" }}>
-                  <RaycastLogoNegIcon />{" "}
+                  <HeartIcon />{" "}
                 </span>
-                <span>Raycast</span>
+                <span>Aranga</span>
               </a>
             </p>
             <div className={styles.aboutGlow} />
@@ -393,7 +394,7 @@ export default function Home({ onTouchReady }) {
                 disabled={selectedSlokasConfig.length === 0}
                 onClick={() => handleAddToRaycast()}
               >
-                <PlusCircleIcon /> Add to Raycast
+                <PlusCircleIcon /> Add to Favorites
               </Button>
 
               <DropdownMenu open={actionsOpen} onOpenChange={setActionsOpen}>

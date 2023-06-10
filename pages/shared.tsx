@@ -18,7 +18,6 @@ import { ButtonGroup } from "../components/ButtonGroup";
 import { isTouchDevice } from "../utils/isTouchDevice";
 import styles from "../styles/Home.module.css";
 import buttonStyles from "../components/Button.module.css";
-import { Prompt } from "../data/prompts";
 import {
   ChevronDownIcon,
   CopyClipboardIcon,
@@ -27,6 +26,7 @@ import {
   StarsIcon,
   Icons,
 } from "@raycast/icons";
+import { Sloka } from "../data/gita";
 
 const raycastProtocolForEnvironments = {
   development: "raycastinternal",
@@ -37,7 +37,7 @@ const raycastProtocol = raycastProtocolForEnvironments[process.env.NODE_ENV];
 export default function Home() {
   const router = useRouter();
 
-  const [selectedPrompts, setSelectedPrompts] = React.useState<Prompt[]>([]);
+  const [selectedPrompts, setSelectedPrompts] = React.useState<Sloka[]>([]);
   const [copied, setCopied] = React.useState(false);
 
   const [actionsOpen, setActionsOpen] = React.useState(false);
@@ -47,11 +47,11 @@ export default function Home() {
   const sharedPromptsGroup = [
     {
       name: `${sharedPromptsInURL.length} ${
-        sharedPromptsInURL.length > 1 ? "prompts" : "prompt"
+        sharedPromptsInURL.length > 1 ? "slokas" : "sloka"
       } shared with you`,
       isTemplate: true,
       isShared: true,
-      prompts: sharedPromptsInURL,
+      slokas: sharedPromptsInURL,
       slug: "/shared",
       icon: StarsIcon,
     },
@@ -83,7 +83,7 @@ export default function Home() {
         (prompt) => prompt.slug === slug
       );
 
-      return promptCategory.prompts[index];
+      return promptCategory.slokas[index];
     });
 
     addedPrompts.forEach((prompt) => {
@@ -100,7 +100,7 @@ export default function Home() {
       const promptCategory = sharedPromptsGroup.find(
         (prompt) => prompt.slug === slug
       );
-      return promptCategory.prompts[index];
+      return promptCategory.slokas[index];
     });
 
     removedPrompts.forEach((prompt) => {
@@ -122,9 +122,9 @@ export default function Home() {
   const makeQueryString = React.useCallback(() => {
     const queryString = selectedPromptsConfig
       .map((selectedPrompt) => {
-        const { title, prompt,  } = selectedPrompt;
-        return `prompts=${encodeURIComponent(
-          JSON.stringify({ title, prompt})
+        const { title,verse_text  } = selectedPrompt;
+        return `slokas=${encodeURIComponent(
+          JSON.stringify({ title, verse_text})
         )}`;
       })
       .join("&");
@@ -136,7 +136,7 @@ export default function Home() {
     const jsonString = `data:text/json;chatset=utf-8,${encodedPromptsData}`;
     const link = document.createElement("a");
     link.href = jsonString;
-    link.download = "prompts.json";
+    link.download = "slokas.json";
     link.click();
   }, [makePromptImportData]);
 
@@ -147,7 +147,7 @@ export default function Home() {
   const handleAddToRaycast = React.useCallback(
     () =>
       router.replace(
-        `${raycastProtocol}://prompts/import?${makeQueryString()}`
+        `${raycastProtocol}://slokas/import?${makeQueryString()}`
       ),
     [router, makeQueryString]
   );
@@ -247,7 +247,7 @@ export default function Home() {
               disabled={selectedPromptsConfig.length === 0}
               onClick={() => handleAddToRaycast()}
             >
-              <PlusCircleIcon /> Add to Raycast
+              <PlusCircleIcon /> Add to Favorites
             </Button>
 
             <DropdownMenu open={actionsOpen} onOpenChange={setActionsOpen}>
@@ -324,39 +324,38 @@ export default function Home() {
                       <promptGroup.icon /> {promptGroup.name}
                     </h2>
                     <div className={styles.prompts}>
-                      {promptGroup.prompts.map((prompt, index) => {
+                      {promptGroup.slokas.map((sloka, index) => {
                         const Icon = StarsIcon;
 
                         return (
                           <div
                             className={`${styles.item} selectable`}
-                            key={prompt.id}
+                            key={sloka.id}
                             data-selected={selectedPrompts.some(
                               (selectedPrompt) =>
-                                selectedPrompt?.id === prompt.id
+                                selectedPrompt?.id === sloka.id
                             )}
                             data-key={`${promptGroup.slug}-${index}`}
                           >
                             <div className={styles.promptTemplate}>
                               <ScrollArea>
-                                <pre
-                                  className={styles.template}
-                                  dangerouslySetInnerHTML={{
-                                    __html: prompt.sloka.replace(
-                                      /\{[^}]+\}/g,
-                                      `<span class="${styles.placeholder}">$&</span>`
-                                    ),
-                                  }}
-                                ></pre>
+                               <pre
+                                 className={styles.template}
+                                 dangerouslySetInnerHTML={{
+                                   __html: sloka.verse_text.replace(
+                                       /\{[^}]+\}/g,
+                                       `<span class="${styles.placeholder}">$&</span>`
+                                     )
+                                 }}
+                               ></pre>
                               </ScrollArea>
                             </div>
                             <div className={styles.prompt}>
                               <span className={styles.name}>
                                 <Icon />
-                                {prompt.title}
+                                {sloka.title}
                               </span>
 
-                              {/*<CreativityIcon creativity={prompt.creativity} />*/}
                             </div>
                           </div>
                         );

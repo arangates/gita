@@ -1,17 +1,17 @@
 <!-- TEXT_SECTION:header:START -->
 <p align="center">
   <a href="https://prompts.ray.so" target="_blank" rel="noopener noreferrer">
-    <img width="1024" src="https://prompts.ray.so/og-image.png" alt="Prompt Explorer">
+    <img width="1024" src="./public/krishna.jpeg" alt="Prompt Explorer">
   </a> 
 </p>
 <h1 align="center">
-  Prompt Explorer
+  Gita Explorer
 </h1>
 <h3 align="center">
-  prompts.ray.so
+  https://gita-aranganathan.vercel.app/
 </h3>
 <p align="center">
-  Easily browse, share, and add prompts to Raycast
+  Easily browse, share, and read Gita
 </p>
 
 <!-- TEXT_SECTION:header:END -->
@@ -32,7 +32,7 @@ npm run dev
 
 We welcome contribution to the prompts data. Here's how you can contribute:
 
-- Open `./data/prompts.ts`
+- Open `./data/gita.ts`
 - Add your prompt to the relevant category
   - Ensure it includes all fields, and that they're unique within its category
 - Create a pull request 🚀
