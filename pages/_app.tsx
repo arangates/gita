@@ -24,17 +24,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <meta
           property="og:image"
-          content="https://prompts.ray.so/og-image.png"
+          content="https://gita-aranganathan.vercel.app/krishna.jpeg"
           key="og-image"
         />
         <meta
           property="og:title"
-          content="Prompt Explorer by Raycast"
+          content="Gita Explorer by Aranga"
           key="og-title"
         />
         <meta
           property="og:description"
-          content="Easily browse, share, and add prompts to Raycast."
+          content="Easily browse, share, and read Gita."
           key="og-description"
         />
 
@@ -44,10 +44,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="summary_large_image"
           key="twitter-card"
         />
-        <meta property="twitter:site" content="@raycastapp" />
+        <meta property="twitter:site" content="@arangates" />
         <meta
           name="description"
-          content="Easily browse, share, and add prompts to Raycast."
+          content="Easily browse, share, and read Gita."
         />
       </Head>
       <ToastProvider swipeDirection="down">
