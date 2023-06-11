@@ -584,6 +584,8 @@ export default function Home({ onTouchReady }) {
                                     __html: sloka
                                       .devanagari
                                       .concat("\n\n")
+                                      .concat(sloka.en_meaning)
+                                      .concat("\n\n")
                                       .concat(sloka.verse_text).replace(
                                       /\{[^}]+\}/g,
                                       `<span class="${styles.placeholder}">$&</span>`
