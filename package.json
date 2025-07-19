@@ -1,7 +1,8 @@
 {
-  "name": "ray.so",
+  "name": "gita-explorer",
   "version": "0.1.0",
   "private": true,
+  "author": "Aranganathan Rathinavelu",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -50,7 +51,7 @@
     "js-base64": "^3.7.3",
     "lodash.debounce": "^4.0.8",
     "nanoid": "^5.1.3",
-    "next": "15.3.0",
+    "next": "^15.4.2",
     "prettier": "^3.3.3",
     "react": "19.0.0",
     "react-color": "^2.19.3",
