@@ -29,11 +29,7 @@ import { NavigationActions } from "@/components/navigation";
 import { Kbd, Kbds } from "@/components/kbd";
 import { InfoDialog } from "../components/InfoDialog";
 
-interface Props {
-  chapters: Chapter[];
-}
-
-export function Prompts() {
+export function Slokas() {
   const [enableViewObserver, setEnableViewObserver] = React.useState(false);
   useSectionInViewObserver({ headerHeight: 50, enabled: enableViewObserver });
 
@@ -328,7 +324,6 @@ function NavItem({ chapter }: { chapter: Chapter }) {
       href={`#${chapter.slug}`}
       onClick={(e) => {
         e.preventDefault();
-
         window.history.pushState(null, "", `${chapter.slug}`);
       }}
       className={styles.sidebarNavItem}

@@ -7,9 +7,16 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import PresetExplorerIcon from "@/app/assets/preset-explorer.svg";
+import ImageMaker from "@/app/assets/icon-maker.svg";
 import { Button } from "./button";
 
 const links = [
+  {
+    href: "/",
+    label: "Gita Images",
+    description: "Create beautiful Gita images in your browser",
+    icon: ImageMaker,
+  },
   {
     href: "/slokas",
     label: "Slokas",
