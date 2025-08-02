@@ -21,22 +21,19 @@ const SLOKA_SAMPLES: CodeSample[] = [
   },
   {
     language: LANGUAGES.swift,
-    code: `import SwiftUI
-
-struct CircleImage: View {
-  var body: some View {
-    Image("turtlerock")
-      .clipShape(Circle())
-  }
-}`,
+    code: `
+    atra śūrā maheṣv-āsā
+bhīmārjuna-samā yudhi
+yuyudhāno virāṭaś ca
+drupadaś ca mahā-rathaḥ`,
   },
   {
     language: LANGUAGES.tsx,
-    code: `import { Detail } from "@raycast/api";
-
-export default function Command() {
-  return <Detail markdown="Hello World" />;
-}`,
+    code: `
+    mātrā-sparśās tu kaunteya
+śītoṣṇa-sukha-duḥkha-dāḥ
+āgamāpāyino ’nityās
+tāṁs titikṣasva bhārata`,
   },
 ];
 
